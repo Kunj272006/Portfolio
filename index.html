@@ -33,6 +33,14 @@
     html {
       scroll-behavior: smooth;
     }
+    .card {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
 
     body {
       background: var(--bg);
@@ -784,7 +792,7 @@
         <h3>&#9670; Tools & Platforms</h3>
         <span class="skill-pill tool">Git &amp; GitHub</span>
         <span class="skill-pill tool">VS Code</span>
-        <span class="skill-pill tool">Canva</span>
+        <span class="skill-pill tool">Figma</span>
         <span class="skill-pill tool">Editing Tools</span>
       </div>
       <div class="skills-group">
@@ -802,7 +810,7 @@
   <section id="projects">
     <div class="section-label"></div>
     <h2>My Work</h2>
-    <div class="project-card">
+    <div class="project-card" onclick="window.open('https://kunj272006.github.io/ridehub-landing-page/', '_blank')" style="cursor: pointer;">
       <div class="project-icon">&#128663;</div>
       <div class="project-badge">Main Project</div>
       <h3>RideHub</h3>
@@ -887,4 +895,5 @@
   </footer>
 
 </body>
+
 </html>
