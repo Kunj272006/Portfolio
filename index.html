@@ -33,14 +33,16 @@
     html {
       scroll-behavior: smooth;
     }
+
     .card {
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-}
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
 
     body {
       background: var(--bg);
@@ -49,7 +51,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE OVERLAY ── */
     body::before {
       content: '';
       position: fixed;
@@ -59,7 +60,6 @@
       z-index: 0;
     }
 
-    /* ── GRID LINES ── */
     body::after {
       content: '';
       position: fixed;
@@ -73,7 +73,7 @@
       z-index: 0;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed;
       top: 0;
@@ -116,7 +116,7 @@
       color: var(--accent);
     }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section {
       position: relative;
       z-index: 1;
@@ -142,7 +142,7 @@
       margin-bottom: 1.5rem;
     }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex;
@@ -152,7 +152,9 @@
     }
 
     .hero-tag {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       font-family: 'Space Mono', monospace;
       font-size: 0.75rem;
       letter-spacing: 0.18em;
@@ -220,7 +222,9 @@
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       padding: 0.9rem 2rem;
       font-family: 'Space Mono', monospace;
       font-size: 0.8rem;
@@ -276,7 +280,7 @@
       border: 1px solid rgba(108, 99, 255, 0.2);
     }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
@@ -354,7 +358,7 @@
       margin-bottom: 1.2rem;
     }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     #skills .skills-cols {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -375,6 +379,9 @@
     }
 
     .skills-group h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       font-family: 'Space Mono', monospace;
       font-size: 0.72rem;
       letter-spacing: 0.16em;
@@ -412,7 +419,7 @@
       color: var(--accent2);
     }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     #projects .project-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -471,6 +478,9 @@
     }
 
     .feature-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
@@ -479,15 +489,21 @@
       border-radius: 4px;
     }
 
+    .feature-tag a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
     .project-icon {
-      font-size: 3.5rem;
       position: absolute;
       right: 2.5rem;
       top: 2.5rem;
-      opacity: 0.12;
+      opacity: 0.1;
+      width: 64px;
+      height: 64px;
     }
 
-    /* ── EDUCATION ── */
+    /* EDUCATION */
     #education .edu-block {
       display: flex;
       gap: 2rem;
@@ -506,7 +522,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       flex-shrink: 0;
     }
 
@@ -537,7 +552,7 @@
       margin-bottom: 0.6rem;
     }
 
-    /* ── ACHIEVEMENTS ── */
+    /* ACHIEVEMENTS */
     #achievements .ach-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -575,7 +590,7 @@
       color: var(--text);
     }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     #contact .contact-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -600,7 +615,9 @@
     }
 
     .contact-card .icon {
-      font-size: 1.6rem;
+      width: 28px;
+      height: 28px;
+      color: var(--accent3);
     }
 
     .contact-card .label {
@@ -617,7 +634,7 @@
       word-break: break-all;
     }
 
-    /* ── DIVIDER ── */
+    /* DIVIDER */
     .section-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
@@ -627,7 +644,7 @@
       z-index: 1;
     }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       position: relative;
       z-index: 1;
@@ -644,7 +661,7 @@
       color: var(--accent);
     }
 
-    /* ── ANIMATIONS ── */
+    /* ANIMATIONS */
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -677,7 +694,7 @@
       }
     }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 900px) {
       nav {
         padding: 1rem 2rem;
@@ -733,15 +750,36 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-deco"></div>
-    <div class="hero-tag">&#9654; Available for collaborations</div>
+    <div class="hero-tag">
+      <!-- Play/arrow icon -->
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
+        <polygon points="0,0 10,5 0,10" />
+      </svg>
+      Available for collaborations
+    </div>
     <h1 class="hero-name">Hi, I'm <span>Kunj Sodhi</span></h1>
     <p class="hero-sub">A passionate Computer Science (AI &amp; ML) student building modern web projects and exploring
       intelligent systems.</p>
     <p class="hero-intro">I am a 2nd-year B.Tech student specializing in Artificial Intelligence and Machine Learning. I
       enjoy building clean and functional web interfaces and continuously improving my problem-solving skills.</p>
     <div class="hero-btns">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="#contact" class="btn btn-outline">Contact Me</a>
+      <a href="#projects" class="btn btn-primary">
+        <!-- Grid/work icon -->
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="3" width="7" height="7" rx="1" />
+          <rect x="14" y="3" width="7" height="7" rx="1" />
+          <rect x="3" y="14" width="7" height="7" rx="1" />
+          <rect x="14" y="14" width="7" height="7" rx="1" />
+        </svg>
+        View Projects
+      </a>
+      <a href="#contact" class="btn btn-outline">
+        <!-- Message icon -->
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        </svg>
+        Contact Me
+      </a>
     </div>
   </section>
 
@@ -759,7 +797,16 @@
         <div class="about-stat"><span>Specialization</span><span>AI &amp; ML</span></div>
         <div class="about-stat"><span>Year</span><span>2nd Year</span></div>
         <div class="about-stat"><span>Focus</span><span>Web Dev + AI</span></div>
-        <div class="about-stat"><span>Status</span><span style="color:var(--accent3)">&#11044; Learning</span></div>
+        <div class="about-stat">
+          <span>Status</span>
+          <span style="color:var(--accent3); display:flex; align-items:center; gap:5px;">
+            <!-- Active dot icon -->
+            <svg width="8" height="8" viewBox="0 0 8 8">
+              <circle cx="4" cy="4" r="4" fill="currentColor" />
+            </svg>
+            Learning
+          </span>
+        </div>
       </div>
       <div class="about-text">
         <p>I am currently pursuing B.Tech in Computer Science Engineering with a specialization in Artificial
@@ -781,7 +828,14 @@
     <h2>My Skills</h2>
     <div class="skills-cols">
       <div class="skills-group">
-        <h3>&#9670; Technical</h3>
+        <h3>
+          <!-- Code/terminal icon -->
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          Technical
+        </h3>
         <span class="skill-pill">HTML5</span>
         <span class="skill-pill">CSS3</span>
         <span class="skill-pill">Basic Python</span>
@@ -789,14 +843,28 @@
         <span class="skill-pill">Data Structures (Learning)</span>
       </div>
       <div class="skills-group">
-        <h3>&#9670; Tools & Platforms</h3>
+        <h3>
+          <!-- Tool/wrench icon -->
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
+          Tools &amp; Platforms
+        </h3>
         <span class="skill-pill tool">Git &amp; GitHub</span>
         <span class="skill-pill tool">VS Code</span>
         <span class="skill-pill tool">Figma</span>
         <span class="skill-pill tool">Editing Tools</span>
       </div>
       <div class="skills-group">
-        <h3>&#9670; Currently Learning</h3>
+        <h3>
+          <!-- Trending up / learning icon -->
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+            <polyline points="17 6 23 6 23 12" />
+          </svg>
+          Currently Learning
+        </h3>
         <span class="skill-pill learning">JavaScript</span>
         <span class="skill-pill learning">AI &amp; Machine Learning</span>
         <span class="skill-pill learning">Advanced Web Dev</span>
@@ -810,18 +878,51 @@
   <section id="projects">
     <div class="section-label"></div>
     <h2>My Work</h2>
-    <div class="project-card" onclick="window.open('https://kunj272006.github.io/ridehub-landing-page/', '_blank')" style="cursor: pointer;">
-      <div class="project-icon">&#128663;</div>
+    <div class="project-card" onclick="window.open('https://kunj272006.github.io/ridehub-landing-page/', '_blank')"
+      style="cursor: pointer;">
+      <!-- Car icon as deco -->
+      <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h12l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2" />
+        <circle cx="7" cy="17" r="2" />
+        <circle cx="17" cy="17" r="2" />
+      </svg>
       <div class="project-badge">Main Project</div>
       <h3>RideHub</h3>
       <p>RideHub is a vehicle rental platform that allows users to book verified vehicles easily. It focuses on user
         trust, convenience, and affordability — making vehicle access seamless for everyone.</p>
       <div class="feature-list">
-        <span class="feature-tag">&#10003; Verified Vehicle System</span>
-        <span class="feature-tag">&#10003; Easy Booking Interface</span>
-        <span class="feature-tag">&#10003; 1-Day Free Ride Scheme</span>
-        <span class="feature-tag">&#10003; User-Friendly UI</span>
-        <span class="feature-tag">&#10003; <a href="https://kunj272006.github.io/ridehub-landing-page/" target="_blank">Link of website</a></span>
+        <span class="feature-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Verified Vehicle System
+        </span>
+        <span class="feature-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          Easy Booking Interface
+        </span>
+        <span class="feature-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          1-Day Free Ride Scheme
+        </span>
+        <span class="feature-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+          User-Friendly UI
+        </span>
+        <span class="feature-tag">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+          <a href="https://kunj272006.github.io/ridehub-landing-page/" target="_blank">Live Website</a>
+        </span>
       </div>
     </div>
   </section>
@@ -833,7 +934,13 @@
     <div class="section-label"></div>
     <h2>Education</h2>
     <div class="edu-block">
-      <div class="edu-icon">&#127979;</div>
+      <div class="edu-icon">
+        <!-- Graduation cap icon -->
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      </div>
       <div>
         <div class="edu-tag">Current</div>
         <h3>B.Tech in Computer Science Engineering (AI &amp; ML)</h3>
@@ -872,17 +979,36 @@
     <h2>Get In Touch</h2>
     <div class="contact-grid">
       <a class="contact-card" href="mailto:kunjsodhi1@gmail.com">
-        <div class="icon">&#128231;</div>
+        <div class="icon">
+          <!-- Mail icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+            <polyline points="22,6 12,13 2,6" />
+          </svg>
+        </div>
         <div class="label">Email</div>
         <div class="value">kunjsodhi1@gmail.com</div>
       </a>
       <a class="contact-card" href="https://www.linkedin.com/in/kunj-sodhi-71741734a/" target="_blank">
-        <div class="icon">&#128279;</div>
+        <div class="icon">
+          <!-- LinkedIn icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </div>
         <div class="label">LinkedIn</div>
         <div class="value">kunj-sodhi-71741734a</div>
       </a>
       <a class="contact-card" href="https://github.com/Kunj272006/Kunj272006" target="_blank">
-        <div class="icon">&#128187;</div>
+        <div class="icon">
+          <!-- GitHub icon -->
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+        </div>
         <div class="label">GitHub</div>
         <div class="value">Kunj272006</div>
       </a>
@@ -891,7 +1017,7 @@
 
   <!-- FOOTER -->
   <footer>
-    &#9426; 2026 <span>Kunj Sodhi</span>
+    &copy; 2026 <span>Kunj Sodhi</span>
   </footer>
 
 </body>
