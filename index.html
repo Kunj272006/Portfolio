@@ -34,16 +34,6 @@
       scroll-behavior: smooth;
     }
 
-    .card {
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -64,9 +54,7 @@
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
       background-size: 60px 60px;
       opacity: 0.18;
       pointer-events: none;
@@ -98,7 +86,7 @@
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
@@ -391,7 +379,9 @@
     }
 
     .skill-pill {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
       background: rgba(108, 99, 255, 0.1);
       border: 1px solid rgba(108, 99, 255, 0.2);
       color: var(--text);
@@ -405,6 +395,10 @@
     .skill-pill:hover {
       background: rgba(108, 99, 255, 0.25);
       border-color: var(--accent);
+    }
+
+    .skill-pill svg {
+      flex-shrink: 0;
     }
 
     .skill-pill.learning {
@@ -428,6 +422,7 @@
       position: relative;
       overflow: hidden;
       transition: border-color 0.2s, transform 0.2s;
+      cursor: pointer;
     }
 
     #projects .project-card:hover {
@@ -723,7 +718,7 @@
 
     @media (max-width: 600px) {
       .nav-links {
-        gap: 1.2rem;
+        gap: 1rem;
       }
 
       .hero-name {
@@ -743,6 +738,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#achievements">Achievements</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -751,7 +747,6 @@
   <section id="hero">
     <div class="hero-deco"></div>
     <div class="hero-tag">
-      <!-- Play/arrow icon -->
       <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor">
         <polygon points="0,0 10,5 0,10" />
       </svg>
@@ -764,7 +759,6 @@
       enjoy building clean and functional web interfaces and continuously improving my problem-solving skills.</p>
     <div class="hero-btns">
       <a href="#projects" class="btn btn-primary">
-        <!-- Grid/work icon -->
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <rect x="3" y="3" width="7" height="7" rx="1" />
           <rect x="14" y="3" width="7" height="7" rx="1" />
@@ -774,7 +768,6 @@
         View Projects
       </a>
       <a href="#contact" class="btn btn-outline">
-        <!-- Message icon -->
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
         </svg>
@@ -787,7 +780,7 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="section-label"></div>
+    <div class="section-label">// about</div>
     <h2>About Me</h2>
     <div class="about-grid">
       <div class="about-card">
@@ -799,8 +792,7 @@
         <div class="about-stat"><span>Focus</span><span>Web Dev + AI</span></div>
         <div class="about-stat">
           <span>Status</span>
-          <span style="color:var(--accent3); display:flex; align-items:center; gap:5px;">
-            <!-- Active dot icon -->
+          <span style="color:var(--accent3);display:flex;align-items:center;gap:5px;">
             <svg width="8" height="8" viewBox="0 0 8 8">
               <circle cx="4" cy="4" r="4" fill="currentColor" />
             </svg>
@@ -824,51 +816,185 @@
 
   <!-- SKILLS -->
   <section id="skills">
-    <div class="section-label"></div>
+    <div class="section-label">// skills</div>
     <h2>My Skills</h2>
     <div class="skills-cols">
+
+      <!-- TECHNICAL -->
       <div class="skills-group">
         <h3>
-          <!-- Code/terminal icon -->
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="16 18 22 12 16 6" />
             <polyline points="8 6 2 12 8 18" />
           </svg>
           Technical
         </h3>
-        <span class="skill-pill">HTML5</span>
-        <span class="skill-pill">CSS3</span>
-        <span class="skill-pill">Basic Python</span>
-        <span class="skill-pill">Problem Solving</span>
-        <span class="skill-pill">Data Structures (Learning)</span>
+        <!-- HTML5 -->
+        <span class="skill-pill">
+          <svg width="14" height="14" viewBox="0 0 512 512">
+            <path fill="#e34f26" d="M107.6 471l-33-370.8h362.8l-33 370.6L255.7 512z" />
+            <path fill="#ef652a" d="M256 480.5l120.9-33.5 28.2-316.2H256z" />
+            <path fill="#ebebeb"
+              d="M256 268.5h-60.1l-4.2-47h64.3v-46H141.5l1.1 12.3 11.3 126.7H256zM256 386.5l-.2.1-50.8-13.7-3.2-36.3h-46.2l6.3 71.1 93.9 26.1.2-.1z" />
+            <path fill="#fff"
+              d="M256 268.5v46h55.8l-5.3 59.2-50.5 13.6v47.8l93.9-26.1 6.9-77.2H256zM311.1 175.5H256v46h99.6z" />
+          </svg>
+          HTML5
+        </span>
+        <!-- CSS3 -->
+        <span class="skill-pill">
+          <svg width="14" height="14" viewBox="0 0 512 512">
+            <path fill="#264de4" d="M107.6 471l-33-370.8h362.8l-33 370.6L255.7 512z" />
+            <path fill="#2965f1" d="M256 480.5l120.9-33.5 28.2-316.2H256z" />
+            <path fill="#ebebeb"
+              d="M256 268.5H145.1l3.5 39h107.4zM256 386.5l-.2.1-50.8-13.7-3.2-36.3h-39.1l6.3 71.1 86.8 24.1.2-.1zM256 175.5H140.9l3.5 39H256z" />
+            <path fill="#fff"
+              d="M256 268.5v39h100.4l-9.5 106.2-90.9 24.6v40.6l93.9-26.1 1.3-14.4 15-168.3 1.6-17H256zM256 175.5v39h131.9l3.2-39z" />
+          </svg>
+          CSS3
+        </span>
+        <!-- Python -->
+        <span class="skill-pill">
+          <svg width="14" height="14" viewBox="0 0 256 255">
+            <defs>
+              <linearGradient id="pyb" x1="12%" y1="12%" x2="88%" y2="88%">
+                <stop offset="0%" stop-color="#387EB8" />
+                <stop offset="100%" stop-color="#366994" />
+              </linearGradient>
+              <linearGradient id="pyy" x1="12%" y1="12%" x2="88%" y2="88%">
+                <stop offset="0%" stop-color="#FFE052" />
+                <stop offset="100%" stop-color="#FFC331" />
+              </linearGradient>
+            </defs>
+            <path fill="url(#pyb)"
+              d="M126.9 0C62.9 0 66.8 27.4 66.8 27.4l.1 28.4h61.3v8.5H43.7S0 59.5 0 124.2c0 64.6 35.7 62.3 35.7 62.3h21.3v-30s-1.1-35.7 35.1-35.7h60.5s34 .5 34-32.8V34.1S192.2 0 126.9 0zm-33.7 19.6a11 11 0 1 1 0 22 11 11 0 0 1 0-22z" />
+            <path fill="url(#pyy)"
+              d="M129.1 254.8c64 0 60.1-27.4 60.1-27.4l-.1-28.4h-61.3v-8.5h84.5s43.7 4.8 43.7-59.9c0-64.6-35.7-62.3-35.7-62.3h-21.3v30s1.2 35.7-35.1 35.7H103.4s-34-.6-34 32.8v54.8s-5.2 33.2 59.7 33.2zm33.7-19.6a11 11 0 1 1 0-22 11 11 0 0 1 0 22z" />
+          </svg>
+          Basic Python
+        </span>
+        <!-- Problem Solving -->
+        <span class="skill-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          Problem Solving
+        </span>
+        <!-- Data Structures -->
+        <span class="skill-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <ellipse cx="12" cy="5" rx="9" ry="3" />
+            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+          </svg>
+          Data Structures (Learning)
+        </span>
       </div>
+
+      <!-- TOOLS -->
       <div class="skills-group">
         <h3>
-          <!-- Tool/wrench icon -->
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path
               d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
           </svg>
           Tools &amp; Platforms
         </h3>
-        <span class="skill-pill tool">Git &amp; GitHub</span>
-        <span class="skill-pill tool">VS Code</span>
-        <span class="skill-pill tool">Figma</span>
-        <span class="skill-pill tool">Editing Tools</span>
+        <!-- Git -->
+        <span class="skill-pill tool">
+          <svg width="14" height="14" viewBox="0 0 92 92">
+            <path fill="#f05032"
+              d="M90.2 41.9L50.1 1.8a6.1 6.1 0 0 0-8.6 0l-8.5 8.5 10.8 10.8a7.3 7.3 0 0 1 9.2 9.3l10.4 10.4a7.3 7.3 0 1 1-4.4 4.1L49.1 34.5v26.7a7.3 7.3 0 1 1-6-.2V34a7.3 7.3 0 0 1-4-9.6L28.4 13.8 1.8 40.4a6.1 6.1 0 0 0 0 8.6l40.1 40.1a6.1 6.1 0 0 0 8.6 0L90.2 50.5a6.1 6.1 0 0 0 0-8.6z" />
+          </svg>
+          Git &amp; GitHub
+        </span>
+        <!-- VS Code -->
+        <span class="skill-pill tool">
+          <svg width="14" height="14" viewBox="0 0 100 100">
+            <mask id="vsc">
+              <path fill="#fff"
+                d="M70.9 3.8L38.4 33.5 16 17.2 4.4 23.4v53.2L16 82.8l22.4-16.3 32.5 29.7L96 88.5v-77zm0 64.9L45.7 50l25.2-18.7z" />
+            </mask>
+            <path fill="#0065A9" d="M96 11.5L70.9 3.8 4.4 68.3v8.3L16 82.8 96 23.4z" mask="url(#vsc)" />
+            <path fill="#007ACC" d="M4.4 23.4L16 17.2 96 76.6l-25.1 7.6z" mask="url(#vsc)" />
+            <path fill="#1F9CF0" d="M70.9 3.8C79 1.3 96 11.5 96 23.4v53.2c0 11.9-17 22.1-25.1 19.6L4.4 31.7z"
+              mask="url(#vsc)" />
+          </svg>
+          VS Code
+        </span>
+        <!-- Figma -->
+        <span class="skill-pill tool">
+          <svg width="14" height="14" viewBox="0 0 38 57">
+            <path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" />
+            <path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z" />
+            <path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19z" />
+            <path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" />
+            <path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" />
+          </svg>
+          Figma
+        </span>
+        <!-- Editing Tools -->
+       <span class="skill-pill tool">
+  <!-- Premiere Pro Icon -->
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+    <rect width="24" height="24" rx="4" fill="#2A0E3F"/>
+    <text x="6" y="16" font-size="10" fill="#E3A8FF" font-family="Arial" font-weight="bold">Pr</text>
+  </svg>
+  Premiere Pro
+</span>
+
+<span class="skill-pill tool">
+  <!-- DaVinci Resolve Icon -->
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="8" r="4" fill="#00CFFF"/>
+    <circle cx="8" cy="14" r="4" fill="#FFD400"/>
+    <circle cx="16" cy="14" r="4" fill="#FF4D4D"/>
+  </svg>
+  DaVinci Resolve
+</span>
       </div>
+
+      <!-- LEARNING -->
       <div class="skills-group">
         <h3>
-          <!-- Trending up / learning icon -->
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
             <polyline points="17 6 23 6 23 12" />
           </svg>
           Currently Learning
         </h3>
-        <span class="skill-pill learning">JavaScript</span>
-        <span class="skill-pill learning">AI &amp; Machine Learning</span>
-        <span class="skill-pill learning">Advanced Web Dev</span>
+        <!-- JavaScript -->
+        <span class="skill-pill learning">
+          <svg width="14" height="14" viewBox="0 0 256 256">
+            <rect width="256" height="256" fill="#f7df1e" rx="8" />
+            <path
+              d="M67.3 213.9l19.4-11.7c3.7 6.6 7.1 12.2 15.3 12.2 7.8 0 12.8-3 12.8-14.9v-80.5h23.8v80.9c0 24.5-14.4 35.7-35.4 35.7-18.9 0-29.9-9.8-35.5-21.7zm81.4-2.7l19.4-11.2c5.1 8.4 11.8 14.6 23.5 14.6 9.9 0 16.2-4.9 16.2-11.8 0-8.2-6.5-11.1-17.4-15.9l-6-2.6c-17.3-7.4-28.8-16.6-28.8-36.1 0-18 13.7-31.7 35.1-31.7 15.2 0 26.2 5.3 34 19.2l-18.6 12c-4.1-7.3-8.5-10.2-15.4-10.2-7 0-11.4 4.4-11.4 10.2 0 7.1 4.4 10 14.7 14.5l6 2.6c20.4 8.7 31.9 17.6 31.9 37.6 0 21.6-17 33.4-39.7 33.4-22.2 0-36.6-10.6-43.5-24.6z" />
+          </svg>
+          JavaScript
+        </span>
+        <!-- AI & ML -->
+        <span class="skill-pill learning">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+              d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z" />
+            <circle cx="7.5" cy="14.5" r="1.5" />
+            <circle cx="16.5" cy="14.5" r="1.5" />
+          </svg>
+          AI &amp; Machine Learning
+        </span>
+        <!-- Advanced Web Dev -->
+        <span class="skill-pill learning">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
+          Advanced Web Dev
+        </span>
       </div>
+
     </div>
   </section>
 
@@ -876,11 +1002,9 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="section-label"></div>
+    <div class="section-label">// projects</div>
     <h2>My Work</h2>
-    <div class="project-card" onclick="window.open('https://kunj272006.github.io/ridehub-landing-page/', '_blank')"
-      style="cursor: pointer;">
-      <!-- Car icon as deco -->
+    <div class="project-card" onclick="window.open('https://kunj272006.github.io/ridehub-landing-page/', '_blank')">
       <svg class="project-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
         <path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1l2-4h12l2 4h1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2" />
         <circle cx="7" cy="17" r="2" />
@@ -931,11 +1055,10 @@
 
   <!-- EDUCATION -->
   <section id="education">
-    <div class="section-label"></div>
+    <div class="section-label">// education</div>
     <h2>Education</h2>
     <div class="edu-block">
       <div class="edu-icon">
-        <!-- Graduation cap icon -->
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
           <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z" />
           <path d="M6 12v5c3 3 9 3 12 0v-5" />
@@ -953,7 +1076,7 @@
 
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
-    <div class="section-label"></div>
+    <div class="section-label">// achievements</div>
     <h2>Achievements &amp; Learning</h2>
     <div class="ach-list">
       <div class="ach-item">
@@ -975,12 +1098,11 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="section-label"></div>
+    <div class="section-label">// contact</div>
     <h2>Get In Touch</h2>
     <div class="contact-grid">
       <a class="contact-card" href="mailto:kunjsodhi1@gmail.com">
         <div class="icon">
-          <!-- Mail icon -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
             <polyline points="22,6 12,13 2,6" />
@@ -991,7 +1113,6 @@
       </a>
       <a class="contact-card" href="https://www.linkedin.com/in/kunj-sodhi-71741734a/" target="_blank">
         <div class="icon">
-          <!-- LinkedIn icon -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
             <rect x="2" y="9" width="4" height="12" />
@@ -1003,7 +1124,6 @@
       </a>
       <a class="contact-card" href="https://github.com/Kunj272006/Kunj272006" target="_blank">
         <div class="icon">
-          <!-- GitHub icon -->
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path
               d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
@@ -1017,7 +1137,7 @@
 
   <!-- FOOTER -->
   <footer>
-    &copy; 2026 <span>Kunj Sodhi</span>
+     2026 <span>Kunj Sodhi</span>
   </footer>
 
 </body>
