@@ -1,13 +1,8 @@
 import Lenis from 'lenis';
-import { Scene3DWorld } from './webgl/scene3d.js';
 
 /**
- * KUNJ SODHI — 25+ YEAR SENIOR FRONTEND CREATIVE 3D PORTFOLIO
- * High-End Creative Technologist Suite:
- * - Three.js WebGL Constellation & Floating Wireframe Sculptures
- * - Dual-Ring Interactive 3D Cursor with Contextual Badges
- * - Specular Optical Light Glare & Multi-Layer Stereoscopic Card Depth
- * - Magnetic Physics on Primary Action Buttons
+ * KUNJ SODHI — SENIOR CREATIVE PORTFOLIO SUITE
+ * - Interactive Custom Cursor & Magnetic Physics
  * - Signature Eye-Tracking Engine (Static Pose, Dynamic Gaze)
  * - Lenis Momentum Smooth Scroll Engine
  * - Interactive AI Triage Simulator Sandbox
@@ -15,7 +10,6 @@ import { Scene3DWorld } from './webgl/scene3d.js';
  */
 
 let lenisInstance = null;
-let scene3d = null;
 
 // ============================================================================
 // 1. PROCEDURAL SOUND SYNTHESIZER (ZERO EXTERNAL AUDIO ASSETS)
@@ -124,12 +118,6 @@ function initSmoothScroll() {
   }
   requestAnimationFrame(raf);
 
-  // Link Lenis scroll progress to Three.js 3D camera trajectory
-  lenisInstance.on('scroll', (e) => {
-    if (scene3d && typeof e.progress === 'number') {
-      scene3d.setScrollProgress(e.progress);
-    }
-  });
 
   // Smooth scroll for all hash navigation links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -611,15 +599,14 @@ function init3DStoryFrames() {
         const progress = Math.min(Math.max((enterStart - rect.top) / (enterStart - enterEnd), 0), 1);
         const ease = 1 - Math.pow(1 - progress, 3);
 
-        const tiltX = ((1 - ease) * 6).toFixed(2);
-        const transY = ((1 - ease) * 35).toFixed(1);
-        const scale = (0.96 + ease * 0.04).toFixed(3);
+        const transY = ((1 - ease) * 25).toFixed(1);
+        const scale = (0.98 + ease * 0.02).toFixed(3);
 
-        frame.style.transform = `perspective(1600px) rotateX(${tiltX}deg) translateY(${transY}px) scale3d(${scale}, ${scale}, 1)`;
+        frame.style.transform = `translateY(${transY}px) scale(${scale})`;
       } else if (rect.top < enterEnd) {
         frame.style.transform = '';
       } else {
-        frame.style.transform = `perspective(1600px) rotateX(6deg) translateY(35px) scale3d(0.96, 0.96, 1)`;
+        frame.style.transform = `translateY(25px) scale(0.98)`;
       }
     });
   }
@@ -632,51 +619,7 @@ function init3DStoryFrames() {
 }
 
 // ============================================================================
-// 14. APPLE / AWWWARDS-TIER SPECULAR 3D CARD PHYSICS & HOLOGRAPHIC LIGHT GLARE
-// ============================================================================
-function initSpecularCardTilt() {
-  const cards = document.querySelectorAll('.project-sheet, .skill-box, .humor-card, .philosophy-banner, .davinci-monitor, .case-note');
-
-  cards.forEach(card => {
-    // Inject dynamic specular glare element if absent
-    if (!card.querySelector('.card-specular-glare')) {
-      const glare = document.createElement('div');
-      glare.className = 'card-specular-glare';
-      glare.setAttribute('aria-hidden', 'true');
-      card.appendChild(glare);
-    }
-
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
-
-      const percentX = Math.round((mouseX / rect.width) * 100);
-      const percentY = Math.round((mouseY / rect.height) * 100);
-
-      card.style.setProperty('--mouse-x', `${percentX}%`);
-      card.style.setProperty('--mouse-y', `${percentY}%`);
-
-      // Gentle, tactile 3D rotation
-      const normX = (mouseX - rect.width / 2) / (rect.width / 2);
-      const normY = (mouseY - rect.height / 2) / (rect.height / 2);
-
-      const rotX = (-normY * 4.5).toFixed(2);
-      const rotY = (normX * 4.5).toFixed(2);
-
-      card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-5px) scale3d(1.01, 1.01, 1.01)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-      card.style.setProperty('--mouse-x', `50%`);
-      card.style.setProperty('--mouse-y', `50%`);
-    });
-  });
-}
-
-// ============================================================================
-// 15. MAGNETIC BUTTON PHYSICS (SENIOR FRONTEND INTERACTION STANDARD)
+// 14. MAGNETIC BUTTON PHYSICS (SENIOR FRONTEND INTERACTION STANDARD)
 // ============================================================================
 function initMagneticButtons() {
   const targets = document.querySelectorAll('.btn-main, .btn-alt, .btn-send-case, .hud-cta-btn, .hud-sound-btn, .companion-btn, .chip-btn');
@@ -703,7 +646,7 @@ function initMagneticButtons() {
 }
 
 // ============================================================================
-// 16. INTERACTIVE DUAL-RING 3D CUSTOM CURSOR
+// 15. INTERACTIVE DUAL-RING CUSTOM CURSOR
 // ============================================================================
 function initCustomCursor() {
   const cursorWrap = document.getElementById('customCursor');
@@ -759,28 +702,20 @@ function initCustomCursor() {
 }
 
 // ============================================================================
-// INITIALIZE APPLICATION (SENIOR FRONTEND SUITE)
+// INITIALIZE APPLICATION
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. WebGL 3D World (Three.js)
-  try {
-    scene3d = new Scene3DWorld('webgl-canvas');
-  } catch (err) {
-    console.warn('3D WebGL World fallback:', err);
-  }
-
-  // 2. Smooth Scrolling & Layout Architecture
+  // 1. Smooth Scrolling & Layout Architecture
   initSmoothScroll();
   initScrubAndChapters();
 
-  // 3. 3D Physics & Interactive Systems
+  // 2. Interactive Systems
   initCustomCursor();
   initCharacterCursorFocus();
   init3DStoryFrames();
-  initSpecularCardTilt();
   initMagneticButtons();
 
-  // 4. Feature Sandboxes
+  // 3. Feature Sandboxes
   initProjectsZoom();
   initTriageSimulator();
   initLutSwitcher();
