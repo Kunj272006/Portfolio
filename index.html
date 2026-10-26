@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kunj Sodhi — AI Engineer, Developer & Video Editor</title>
+  <meta name="description" content="Kunj Sodhi is an AI engineer, developer, and video editor who turns raw logic into living products and cinematic films." />
+  <meta name="author" content="Kunj Sodhi" />
+  <meta name="theme-color" content="#090A0D" />
+
+  <!-- Google Fonts: Instrument Serif, Newsreader, Libre Franklin, IBM Plex Mono, Permanent Marker -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Permanent+Marker&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23090A0D'/><rect x='4' y='4' width='92' height='92' rx='20' stroke='%232563EB' stroke-width='4' fill='none'/><text x='50' y='68' font-size='48' font-weight='900' fill='%233B82F6' font-family='sans-serif' text-anchor='middle'>K.</text></svg>" />
+
+  <!-- Structured JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kunj Sodhi",
+    "jobTitle": "AI Engineer & Creative Developer",
+    "url": "https://github.com/Kunj272006",
+    "email": "mailto:kunjsodhi1@gmail.com",
+    "sameAs": [
+      "https://github.com/Kunj272006/Kunj272006",
+      "https://www.linkedin.com/in/kunj-sodhi-71741734a/",
+      "https://www.instagram.com/kunj_sodhi/",
+      "https://kunj272006.github.io/Editing-Portfolio-/"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/src/styles/main.css" />
+</head>
+<body>
+
+  <!-- Subtle Paper Texture Overlay -->
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <!-- BRIGHT TACTILE HUD -->
+  <header class="hud" id="hud">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <a class="hud-logo" href="#hero">Kunj<span>.</span></a>
+      <span class="hud-status mono">
+        <span class="pulse-dot"></span> 2026 // Active <span class="hud-fps" id="hudFps">· 60 FPS</span>
+      </span>
+    </div>
+
+    <nav class="hud-nav" aria-label="Main Sections">
+      <a href="#about" class="hud-link">About</a>
+      <a href="#projects" class="hud-link">Projects</a>
+      <a href="#skills" class="hud-link">Skills</a>
+      <a href="#editing" class="hud-link">Editing</a>
+      <a href="#humor" class="hud-link">Status</a>
+      <a href="#contact" class="hud-link">Contact</a>
+    </nav>
+
+    <div class="hud-right">
+      <button type="button" class="hud-sound-btn" id="hudSoundBtn" aria-pressed="false" title="Toggle Procedural Web Audio">
+        <span class="hud-eq" id="hudEq" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span id="hudSoundLabel">Sound off</span>
+      </button>
+
+      <a class="hud-cta-btn" href="#contact">Let's talk</a>
+    </div>
+  </header>
+
+  <!-- Bottom Scrub Progress Bar -->
+  <div class="scrub-track" aria-hidden="true">
+    <div class="scrub-fill" id="scrubFill"></div>
+  </div>
+  <div class="scrub-info mono" aria-hidden="true">
+    <span style="color:var(--blue);font-weight:700;" id="scrubChapter">01 · Hero</span>
+    <span id="scrubTime">00:00 / 04:12</span>
+  </div>
+
+  <main>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Copy & Actions -->
+          <div class="hero-copy">
+            <p class="hero-eyebrow">AI ENGINEERING | DEVELOPMENT | CREATIVE EDITING</p>
+            
+            <h1 class="hero-headline">
+              <span class="line">HI, I'M KUNJ.</span>
+              <span class="line">I BUILD THINGS.</span>
+              <span class="line"><span class="highlight-yellow">SOME EVEN WORK.</span></span>
+            </h1>
+
+            <p class="hero-desc">
+              I build AI-powered experiences, turn ideas into digital products, and edit videos that refuse to be boring.
+            </p>
+
+            <p class="hero-personality">
+              Part engineer. Part editor. Full-time debugging my life.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn-main" href="#projects">
+                Explore my work ↓
+              </a>
+              <a class="btn-alt" href="#editing">
+                Watch my edits ↗
+              </a>
+            </div>
+
+            <p class="hero-status-line">
+              CURRENTLY LEARNING. CONSTANTLY BUILDING. OCCASIONALLY DEBUGGING.
+            </p>
+          </div>
+
+          <!-- Right Column: Interactive Standalone Character with Cursor Gaze Focus -->
+          <!-- Right Column: Interactive Character with Eye Cursor Tracking (Character Still, Eyes Follow Cursor) -->
+          <div class="character-stage" id="characterStage" title="Watch Kunj's eyes follow your cursor!">
+            <div class="character-aura" id="characterAura" aria-hidden="true"></div>
+            
+            <div class="character-figure" id="characterFigure">
+              <img 
+                src="/assets/kunj-portrait.png" 
+                alt="Illustrated portrait of Kunj Sodhi with sunglasses and black hoodie" 
+                class="character-img"
+                id="characterImg"
+              />
+
+              <!-- Sunglasses Eye / Pupil Focus Tracking Layer (Only Eyes Move) -->
+              <div class="eye-tracker-layer" id="eyeTrackerLayer" aria-hidden="true">
+                <span class="sunglass-lens lens--left">
+                  <span class="eye-pupil" id="leftPupilGlint"></span>
+                </span>
+                <span class="sunglass-lens lens--right">
+                  <span class="eye-pupil" id="rightPupilGlint"></span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Real-time Cursor Eye Gaze Telemetry Pill -->
+            <div class="character-gaze-hud mono" id="characterGazeHud">
+              <span class="gaze-dot"></span>
+              <span id="gazeStatus">EYES: TRACKING CURSOR</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTINUOUS INFINITE TICKER MARQUEE 01 -->
+    <div class="marquee-strip-wrap" aria-hidden="true">
+      <div class="marquee-strip marquee-strip--yellow">
+        <div class="marquee-content">
+          <span>⚡ AI RESEARCH & MULTIMODAL SYSTEMS</span>
+          <span>✦ DAVINCI RESOLVE COLOR GRADING</span>
+          <span>⚡ FULL-STACK LOGIC WITH REACT & SUPABASE</span>
+          <span>✦ CINEMATIC EDITING & FOLEY AUDIO</span>
+          <span>⚡ 60 FPS CRAFT & ACCESSIBLE UI</span>
+          <span>✦ PROMPT ENGINEERING & RULE-VALIDATED TRIAGE</span>
+          <span>⚡ BUG FREE (MOSTLY)</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>⚡ AI RESEARCH & MULTIMODAL SYSTEMS</span>
+          <span>✦ DAVINCI RESOLVE COLOR GRADING</span>
+          <span>⚡ FULL-STACK LOGIC WITH REACT & SUPABASE</span>
+          <span>✦ CINEMATIC EDITING & FOLEY AUDIO</span>
+          <span>⚡ 60 FPS CRAFT & ACCESSIBLE UI</span>
+          <span>✦ PROMPT ENGINEERING & RULE-VALIDATED TRIAGE</span>
+          <span>⚡ BUG FREE (MOSTLY)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D STORYTELLING CHAPTER STAGE -->
+    <main class="story-stage">
+
+      <!-- 2. ABOUT ME SECTION (ACT 01 // 3D PHYSICAL STORY FRAME) -->
+      <section class="about-section story-frame" id="about" data-chapter="1" title="Act 01 · The Perspective">
+        
+        <!-- 3D Story Chapter Gateway Ribbon -->
+        <div class="story-chapter-gateway">
+          <div class="chapter-act-flag">
+            <span class="chapter-act-num">ACT 01</span>
+            <span class="chapter-act-sep">///</span>
+            <span class="chapter-act-title">THE PERSPECTIVE</span>
+          </div>
+          <div class="chapter-story-blurb">
+            <span class="pulse-dot" style="background:var(--red);box-shadow:0 0 6px var(--red);display:inline-block;"></span>
+            <span>PROLOGUE ➔ HOW I THINK & WORK</span>
+          </div>
+          <div class="chapter-badge-3d mono">
+            <span>3D CHAPTER ELEVATION</span>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="about-grid">
+            
+            <div>
+              <span class="section-kicker">01 · THE PERSPECTIVE</span>
+              <h2 class="section-title">NOT JUST WRITING CODE.</h2>
+              <div style="margin-top:24px;">
+                <span class="rubber-stamp stamp--red">FROM SCRATCH</span>
+              </div>
+            </div>
+
+            <div class="about-body">
+              <p>
+                I'm Kunj Sodhi — an AI-focused developer and video editor who enjoys turning ideas into things people can actually use.
+              </p>
+              <p>
+                From experimenting with AI-powered applications to building websites for real-world ideas and creating cinematic edits, I enjoy working at the intersection of technology and creativity.
+              </p>
+              <p>
+                I care about how things work, but also about how they look, feel, and make people interact with them.
+              </p>
+
+              <div class="philosophy-banner">
+                <span aria-hidden="true" class="tape tape--coral" style="top:-14px;left:40%;"></span>
+                <p class="philosophy-label">MY PHILOSOPHY</p>
+                <blockquote class="philosophy-quote">
+                  “Build it. Break it. Debug it. Make it better. Repeat.”
+                </blockquote>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. PROJECTS SECTION (LIGHT TABLE & ZOOM-IN DEPTH) -->
+      <section class="projects-section story-frame" id="projects" data-chapter="2">
+        
+        <!-- 3D Story Chapter Gateway Ribbon -->
+        <div class="story-chapter-gateway">
+          <div class="chapter-act-flag">
+            <span class="chapter-act-num" style="background:var(--blue);">ACT 02</span>
+            <span class="chapter-act-sep">///</span>
+            <span class="chapter-act-title">VERIFIED BUILDS</span>
+          </div>
+          <div class="chapter-story-blurb">
+            <span class="pulse-dot" style="background:var(--blue);box-shadow:0 0 6px var(--blue);display:inline-block;"></span>
+            <span>CHAPTER 02 · REAL-WORLD PRODUCTS THAT EXIST</span>
+          </div>
+          <div class="chapter-badge-3d mono">
+            <span>LIGHT TABLE 3D</span>
+          </div>
+        </div>
+      <div class="container">
+        
+        <header class="projects-head">
+          <span class="section-kicker">02 · VERIFIED BUILDS</span>
+          <h2 class="section-title">LESS TALK.<br/>MORE THINGS THAT EXIST.</h2>
+          <p class="projects-sub">Ideas are cheap. Making them work is the interesting part.</p>
+        </header>
+
+        <div class="projects-stack" id="projectsStack">
+          
+          <!-- PROJECT 01 — MEDITRIAGE AI -->
+          <article class="project-sheet is-active" data-project-idx="0" id="project-meditriage">
+            <span aria-hidden="true" class="tape tape--blue" style="top:-14px;left:10%;"></span>
+            
+            <div class="project-info">
+              <div class="project-badge-row">
+                <span class="project-tag mono">AI | Healthcare Technology</span>
+                <span class="project-idx mono">01 / 03</span>
+                <span class="rubber-stamp stamp--blue" style="font-size:10px;padding:2px 8px;">LIVE APP</span>
+              </div>
+
+              <h3 class="project-name">MediTriage AI</h3>
+              
+              <p class="project-summary">
+                An AI-focused healthcare project designed to explore symptom assessment and make healthcare-related guidance more accessible through a digital interface.
+              </p>
+
+              <!-- Live AI Triage Simulator Sandbox -->
+              <div class="triage-box" id="triageBox">
+                <div class="triage-header mono">
+                  <span style="color:var(--ink);">Interactive Triage Simulator · Gemini API</span>
+                  <span style="color:var(--green);"><span class="pulse-dot" style="display:inline-block;"></span> Active Engine</span>
+                </div>
+                <div class="triage-pills">
+                  <button type="button" class="triage-pill is-active" data-urgency="critical" data-badge="CRITICAL (ESI-1)" data-reason="Acute chest pressure radiating to left arm + diaphoresis. Immediate trauma/catheterization alert dispatched." data-vitals="BP: 85/50 · HR: 122 bpm · SpO2: 91%">Chest Pain + Diaphoresis</button>
+                  <button type="button" class="triage-pill" data-urgency="urgent" data-badge="URGENT (ESI-3)" data-reason="High pyrexia (39.5°C) with persistent cough and focal lung crackles. Nebulizer & chest X-ray queued." data-vitals="Temp: 39.5°C · HR: 98 bpm · SpO2: 95%">Fever + Severe Cough</button>
+                  <button type="button" class="triage-pill" data-urgency="routine" data-badge="ROUTINE (ESI-5)" data-reason="Superficial skin abrasion on forearm. Clean margins, intact neurovascular status. Dressing station routed." data-vitals="BP: 120/78 · HR: 72 bpm · SpO2: 99%">Minor Skin Abrasion</button>
+                </div>
+                <div class="triage-console" id="triageConsole">
+                  <div style="margin-bottom:6px;">
+                    <span class="urgency-badge urgency-badge--critical" id="urgencyBadge">CRITICAL (ESI-1)</span>
+                    <span id="triageVitals" style="color:var(--ink-secondary);font-weight:600;">BP: 85/50 · HR: 122 bpm · SpO2: 91%</span>
+                  </div>
+                  <p id="triageReason" style="margin:0;font-size:12px;color:var(--ink);line-height:1.45;">Acute chest pressure radiating to left arm + diaphoresis. Immediate trauma/catheterization alert dispatched.</p>
+                </div>
+              </div>
+
+              <div class="hero-actions" style="margin-top:2rem;margin-bottom:0;">
+                <a class="btn-main" href="https://medi-traige-ai.vercel.app" target="_blank" rel="noopener">
+                  Launch Live App ↗
+                </a>
+                <a class="btn-alt" href="https://github.com/Kunj272006/MediTraigeAi" target="_blank" rel="noopener">
+                  View Source Code ↗
+                </a>
+              </div>
+            </div>
+
+            <!-- Optical Preview Frame -->
+            <div class="project-preview-card">
+              <img src="/assets/meditriage-logo.png" alt="MediTriage AI Platform Logo" />
+            </div>
+          </article>
+
+          <!-- PROJECT 02 — TRUE NORTH DRIP -->
+          <article class="project-sheet" data-project-idx="1" id="project-tnd">
+            <span aria-hidden="true" class="tape tape--yellow" style="top:-14px;right:15%;"></span>
+            
+            <div class="project-info">
+              <div class="project-badge-row">
+                <span class="project-tag mono">Brand | E-commerce</span>
+                <span class="project-idx mono">02 / 03</span>
+                <span class="rubber-stamp stamp--red" style="font-size:10px;padding:2px 8px;">SHIPPED</span>
+              </div>
+
+              <h3 class="project-name">True North Drip</h3>
+              
+              <p class="project-summary">
+                A streetwear brand website built around visual identity, fashion, and digital presentation. A project where brand aesthetics meet the web: limited capsule drops, heavyweight oversized garments, and a dark editorial visual experience.
+              </p>
+
+              <div class="hero-actions" style="margin-bottom:0;">
+                <a class="btn-main" href="https://thetruenorthdrip.netlify.app" target="_blank" rel="noopener">
+                  Visit Storefront ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="project-preview-card" style="background:#141312;color:#FFFFFF;position:relative;overflow:hidden;">
+              <div class="card-micro-ticker" aria-hidden="true">
+                <div class="micro-ticker-track">
+                  <span>HEAVYWEIGHT 400GSM // ARCHIVE 2026 // LIMITED CAPSULE // STREET CULTURE //</span>
+                  <span>HEAVYWEIGHT 400GSM // ARCHIVE 2026 // LIMITED CAPSULE // STREET CULTURE //</span>
+                </div>
+              </div>
+              <div style="text-align:center;padding:2.5rem;position:relative;z-index:2;">
+                <span style="font-family:var(--f-display);font-size:clamp(36px, 4.2vw, 54px);display:block;letter-spacing:-0.02em;">TRUE NORTH DRIP</span>
+                <span class="mono" style="font-size:11px;color:var(--yellow);margin-top:10px;display:block;">Identity · Culture · Scarcity</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 — RIDEHUB -->
+          <article class="project-sheet" data-project-idx="2" id="project-ridehub">
+            <span aria-hidden="true" class="tape tape--coral" style="top:-14px;left:20%;"></span>
+            
+            <div class="project-info">
+              <div class="project-badge-row">
+                <span class="project-tag mono">Web Application | Mobility</span>
+                <span class="project-idx mono">03 / 03</span>
+                <span class="rubber-stamp stamp--green" style="font-size:10px;padding:2px 8px;">VERIFIED</span>
+              </div>
+
+              <h3 class="project-name">RideHub</h3>
+              
+              <p class="project-summary">
+                A mobility-focused web project exploring how a digital interface can make ride-related experiences easier to navigate. Unified self-drive rental aggregator with geospatial map discovery, scooter/bike/car comparisons, and paperless verification.
+              </p>
+
+              <div class="hero-actions" style="margin-bottom:0;">
+                <a class="btn-main" href="https://ridehub-teal.vercel.app" target="_blank" rel="noopener">
+                  Launch Mobility App ↗
+                </a>
+                <a class="btn-alt" href="https://github.com/Kunj272006/RideHub" target="_blank" rel="noopener">
+                  View Source Code ↗
+                </a>
+              </div>
+            </div>
+
+            <div class="project-preview-card">
+              <img src="/assets/ridehub-logo.png" alt="RideHub Rental Mobility Logo" />
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 4. SKILLS SECTION (COLORFUL TOOLKIT GRID) -->
+    <section class="skills-section story-frame" id="skills" data-chapter="3">
+      
+      <!-- 3D Story Chapter Gateway Ribbon -->
+      <div class="story-chapter-gateway">
+        <div class="chapter-act-flag">
+          <span class="chapter-act-num" style="background:var(--green);color:#FFFFFF;">ACT 03</span>
+          <span class="chapter-act-sep">///</span>
+          <span class="chapter-act-title">THE TOOLKIT</span>
+        </div>
+        <div class="chapter-story-blurb">
+          <span class="pulse-dot" style="background:var(--green);box-shadow:0 0 6px var(--green);display:inline-block;"></span>
+          <span>CHAPTER 03 · WEAPONS OF CHOICE</span>
+        </div>
+        <div class="chapter-badge-3d mono">
+          <span>THE ARSENAL</span>
+        </div>
+      </div>
+
+      <div class="container">
+        
+        <header>
+          <span class="section-kicker">03 · TOOLKIT</span>
+          <h2 class="section-title">MY TOOLKIT.<br/>NOT MY ENTIRE PERSONALITY.</h2>
+          <p class="projects-sub" style="max-width:38em;">
+            I enjoy learning new technologies, experimenting with ideas, and figuring out how to turn concepts into working products.
+          </p>
+        </header>
+
+        <div class="skills-grid">
+          
+          <div class="skill-box">
+            <span aria-hidden="true" class="tape tape--blue" style="top:-12px;left:18px;width:90px;height:24px;"></span>
+            <h3 class="skill-box-title">AI & Machine Learning</h3>
+            <p class="skill-box-sub">Exploring intelligent systems and AI-powered applications.</p>
+            <div class="skill-chips">
+              <span class="skill-chip">Google Gemini Multimodal API</span>
+              <span class="skill-chip">LLM Orchestration</span>
+              <span class="skill-chip">Prompt Engineering</span>
+              <span class="skill-chip">Vision & Audio Extraction</span>
+              <span class="skill-chip">Rule-Validated Triage</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <span aria-hidden="true" class="tape tape--yellow" style="top:-12px;right:18px;width:90px;height:24px;"></span>
+            <h3 class="skill-box-title">Development</h3>
+            <p class="skill-box-sub">Building and improving web experiences through code.</p>
+            <div class="skill-chips">
+              <span class="skill-chip">React</span>
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">Vite</span>
+              <span class="skill-chip">Supabase & PostgreSQL</span>
+              <span class="skill-chip">Tailwind CSS</span>
+              <span class="skill-chip">Web Audio API</span>
+              <span class="skill-chip">Leaflet Maps</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <span aria-hidden="true" class="tape tape--pink" style="top:-12px;left:18px;width:90px;height:24px;"></span>
+            <h3 class="skill-box-title">Creative Editing</h3>
+            <p class="skill-box-sub">Visual storytelling, pacing, transitions, and motion.</p>
+            <div class="skill-chips">
+              <span class="skill-chip">DaVinci Resolve Studio</span>
+              <span class="skill-chip">Color Grading & Film LUTs</span>
+              <span class="skill-chip">Sound Foley Design</span>
+              <span class="skill-chip">Diffusion AI Video</span>
+              <span class="skill-chip">Kinetic Motion VFX</span>
+            </div>
+          </div>
+
+          <div class="skill-box">
+            <span aria-hidden="true" class="tape tape--coral" style="top:-12px;right:18px;width:90px;height:24px;"></span>
+            <h3 class="skill-box-title">Problem Solving</h3>
+            <p class="skill-box-sub">Breaking down complicated problems into smaller, solvable pieces.</p>
+            <div class="skill-chips">
+              <span class="skill-chip">System Architecture</span>
+              <span class="skill-chip">Pipeline Debugging</span>
+              <span class="skill-chip">State Machines</span>
+              <span class="skill-chip">Row-Level Security (RLS)</span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="skills-footer-line">
+          Still learning. Still experimenting. Still finding bugs I definitely didn't put there.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- CONTINUOUS INFINITE TICKER MARQUEE 02 (REVERSE) -->
+    <div class="marquee-strip-wrap" aria-hidden="true">
+      <div class="marquee-strip marquee-strip--cobalt marquee-strip--reverse">
+        <div class="marquee-content">
+          <span>★ 35MM FILM TIMELINE</span>
+          <span>★ DAVINCI STUDIO REC.709 MASTER</span>
+          <span>★ KINETIC PACING & SOUND DESIGN</span>
+          <span>★ DIFFUSION AI VIDEO FX</span>
+          <span>★ KODACHROME 64 FILM EMULATION</span>
+          <span>★ NON-LINEAR EDITING LOGIC</span>
+          <span>★ 4K MASTER RENDER</span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span>★ 35MM FILM TIMELINE</span>
+          <span>★ DAVINCI STUDIO REC.709 MASTER</span>
+          <span>★ KINETIC PACING & SOUND DESIGN</span>
+          <span>★ DIFFUSION AI VIDEO FX</span>
+          <span>★ KODACHROME 64 FILM EMULATION</span>
+          <span>★ NON-LINEAR EDITING LOGIC</span>
+          <span>★ 4K MASTER RENDER</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. VIDEO EDITING SECTION (ELECTRIC COBALT BLUE CHAPTER) -->
+    <section class="editing-section story-frame" id="editing" data-chapter="4">
+      
+      <!-- 3D Story Chapter Gateway Ribbon (Dark Theme) -->
+      <div class="story-chapter-gateway story-chapter-gateway--dark">
+        <div class="chapter-act-flag">
+          <span class="chapter-act-num" style="background:var(--yellow);color:var(--ink);">ACT 04</span>
+          <span class="chapter-act-sep" style="color:var(--yellow);">///</span>
+          <span class="chapter-act-title" style="color:#FFFFFF;">THE TIMELINE & REEL</span>
+        </div>
+        <div class="chapter-story-blurb" style="background:#1E1C1A;color:#FFFFFF;border-color:rgba(255,255,255,0.25);">
+          <span class="pulse-dot" style="background:var(--yellow);box-shadow:0 0 6px var(--yellow);display:inline-block;"></span>
+          <span>CHAPTER 04 · FRAMES, CUTS, PACING & COLOR</span>
+        </div>
+        <div class="chapter-badge-3d mono" style="background:rgba(255,196,0,0.15);color:var(--yellow);border-color:var(--yellow);">
+          <span>3D DAVINCI STAGE</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="editing-card">
+          <div>
+            <span class="section-kicker" style="background:var(--yellow);color:var(--ink);">04 · CINEMATIC TIMELINE</span>
+            
+            <h2 class="editing-title">
+              I ALSO EDIT.<br/>YES, THE OTHER TIMELINE.
+            </h2>
+
+            <p class="editing-lead">
+              Code has logic. Editing has timing. I like working with both.
+            </p>
+
+            <p class="editing-text">
+              Beyond development, I create video edits focused on pacing, visual rhythm, transitions, and storytelling.
+              <br/><br/>
+              I enjoy taking raw footage and shaping it into something that catches attention, communicates an idea, and feels intentional.
+              <br/><br/>
+              Curious what that looks like? Don't take my word for it. Watch the work.
+            </p>
+
+            <a class="btn-main" style="box-shadow:4px 4px 0 var(--yellow);" href="https://kunj272006.github.io/Editing-Portfolio-/" target="_blank" rel="noopener">
+              VIEW MY EDITING PORTFOLIO ↗
+            </a>
+          </div>
+
+          <!-- DaVinci Resolve Real-Time LUT Switcher Monitor -->
+          <div class="davinci-monitor">
+            <div class="davinci-screen is-grade" id="davinciScreen">
+              <!-- Live Continuous Timecode Counter -->
+              <div class="davinci-timecode mono" id="davinciTc">
+                <span class="davinci-rec-dot"></span> REC ● 00:04:12:18
+              </div>
+
+              <!-- Animated Continuous Audio VU Meters -->
+              <div class="davinci-vu-meters" aria-hidden="true" title="Live Audio Foley Monitor">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+
+              <div style="text-align:center;padding:1.5rem;color:#FFFFFF;position:relative;z-index:2;">
+                <span style="font-family:var(--f-display);font-size:26px;display:block;">KUNJ CREATIVES</span>
+                <span class="mono" style="font-size:10px;color:var(--yellow);margin-top:6px;display:block;">4K Commercials · Diffusion VFX · Audio Foley</span>
+              </div>
+            </div>
+
+            <div class="davinci-controls">
+              <span class="mono" style="font-size:10px;color:#A09D96;">DaVinci Grade LUT:</span>
+              <div class="davinci-btn-row">
+                <button type="button" class="davinci-btn" data-lut="log">LOG RAW</button>
+                <button type="button" class="davinci-btn is-active" data-lut="grade">Rec.709 Master</button>
+                <button type="button" class="davinci-btn" data-lut="koda">Kodachrome 64</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DEVELOPER HUMOR SECTION -->
+    <section class="humor-section story-frame" id="humor" data-chapter="5">
+      
+      <!-- 3D Story Chapter Gateway Ribbon -->
+      <div class="story-chapter-gateway">
+        <div class="chapter-act-flag">
+          <span class="chapter-act-num" style="background:var(--ink);color:var(--yellow);">ACT 05</span>
+          <span class="chapter-act-sep">///</span>
+          <span class="chapter-act-title">SYSTEM DIAGNOSTICS</span>
+        </div>
+        <div class="chapter-story-blurb">
+          <span class="pulse-dot" style="background:var(--green-bright);box-shadow:0 0 6px var(--green-bright);display:inline-block;"></span>
+          <span>CHAPTER 05 · A BRIEF TECHNICAL STATUS REPORT</span>
+        </div>
+        <div class="chapter-badge-3d mono">
+          <span>REAL-TIME STATUS</span>
+        </div>
+      </div>
+
+      <div class="container">
+        
+        <div class="humor-center">
+          <span class="section-kicker">A BRIEF TECHNICAL STATUS REPORT</span>
+          <h2 class="section-title">IT WORKS ON MY MACHINE.</h2>
+          <p class="projects-sub">
+            I'm learning to build better software, one feature, one bug, and one questionable debugging decision at a time.
+          </p>
+        </div>
+
+        <div class="humor-grid">
+          
+          <div class="humor-card">
+            <span aria-hidden="true" class="tape tape--yellow" style="top:-12px;left:20px;width:80px;height:24px;"></span>
+            <p class="humor-key mono">IDEAS</p>
+            <p class="humor-val">Too many open tabs.</p>
+            <p class="humor-tagline mono">SYSTEM MEMORY: 99.4%</p>
+          </div>
+
+          <div class="humor-card">
+            <span aria-hidden="true" class="tape tape--blue" style="top:-12px;right:20px;width:80px;height:24px;"></span>
+            <p class="humor-key mono">CODE</p>
+            <p class="humor-val">A work in progress. As usual.</p>
+            <p class="humor-tagline mono">GIT: "fixed bug (hopefully)"</p>
+          </div>
+
+          <div class="humor-card">
+            <span aria-hidden="true" class="tape tape--pink" style="top:-12px;left:20px;width:80px;height:24px;"></span>
+            <p class="humor-key mono">BUGS</p>
+            <p class="humor-val">Some are features. Allegedly.</p>
+            <p class="humor-tagline mono">STATUS: UNDOCUMENTED SPEC</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. CONTACT SECTION (MANILA CASE FILE FOLDER) -->
+    <section class="contact-section story-frame" id="contact" data-chapter="6">
+      
+      <!-- 3D Story Chapter Gateway Ribbon -->
+      <div class="story-chapter-gateway">
+        <div class="chapter-act-flag">
+          <span class="chapter-act-num" style="background:var(--red);color:#FFFFFF;">ACT 06</span>
+          <span class="chapter-act-sep">///</span>
+          <span class="chapter-act-title">TRANSMISSION DOSSIER</span>
+        </div>
+        <div class="chapter-story-blurb">
+          <span class="pulse-dot" style="background:var(--blue);box-shadow:0 0 6px var(--blue);display:inline-block;"></span>
+          <span>EPILOGUE · LET'S BUILD SOMETHING THAT DOESN'T SUCK</span>
+        </div>
+        <div class="chapter-badge-3d mono">
+          <span>CASE FILE #2026</span>
+        </div>
+      </div>
+
+      <div class="container">
+        
+        <div class="folder-wrap">
+          <span class="folder-tab">CASE FILE · COLLABORATION</span>
+          
+          <div class="folder-body">
+            
+            <!-- Left Info Sheet -->
+            <div>
+              <span class="section-kicker" style="background:#FFFFFF;color:var(--ink);">05 · DIRECT DISPATCH</span>
+              <h2 class="section-title" style="margin-top:12px;">GOT AN IDEA?<br/>LET'S BUILD IT.</h2>
+              
+              <p class="projects-sub" style="margin-top:14px;color:var(--ink);">
+                Have a project, a creative collaboration, or an interesting problem to solve? Let's talk.
+              </p>
+
+              <div class="contact-channels">
+                <a class="channel-item" href="mailto:kunjsodhi1@gmail.com">
+                  <span class="mono" style="color:var(--red);">EMAIL:</span> kunjsodhi1@gmail.com
+                </a>
+                <a class="channel-item" href="https://github.com/Kunj272006/Kunj272006" target="_blank" rel="noopener">
+                  <span class="mono" style="color:var(--blue);">GITHUB:</span> github.com/Kunj272006
+                </a>
+                <a class="channel-item" href="https://www.linkedin.com/in/kunj-sodhi-71741734a/" target="_blank" rel="noopener">
+                  <span class="mono" style="color:var(--blue);">LINKEDIN:</span> linkedin.com/in/kunj-sodhi-71741734a
+                </a>
+                <a class="channel-item" href="https://www.instagram.com/kunj_sodhi/" target="_blank" rel="noopener">
+                  <span class="mono" style="color:var(--red);">INSTAGRAM:</span> @kunj_sodhi
+                </a>
+                <a class="channel-item" href="https://kunj272006.github.io/Editing-Portfolio-/" target="_blank" rel="noopener">
+                  <span class="mono" style="color:var(--blue);">REEL:</span> kunj272006.github.io/Editing-Portfolio-
+                </a>
+              </div>
+
+              <a class="btn-main" href="mailto:kunjsodhi1@gmail.com">
+                LET'S TALK →
+              </a>
+            </div>
+
+            <!-- Right Case File Form Sheet with SVG Paperclip -->
+            <div class="case-note">
+              <!-- Handcrafted SVG Paperclip -->
+              <svg aria-hidden="true" class="paperclip-icon" viewBox="0 0 28 60" fill="none">
+                <path d="M8 18 V46 a6 6 0 0 0 12 0 V10 a9 9 0 0 0 -18 0 V44" stroke="#77736A" stroke-width="3" stroke-linecap="round"></path>
+              </svg>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.2rem;border-bottom:1.5px solid var(--ink);padding-bottom:8px;">
+                <span class="mono" style="font-weight:800;color:var(--blue);">CASE FILE BRIEF</span>
+                <span class="rubber-stamp stamp--red" style="font-size:10px;padding:2px 6px;">NEW</span>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label-title">I am a</label>
+                <div class="chip-group" id="roleChips">
+                  <button type="button" class="chip-btn is-active" data-val="Founder">Founder</button>
+                  <button type="button" class="chip-btn" data-val="Agency">Agency</button>
+                  <button type="button" class="chip-btn" data-val="Creator">Creator</button>
+                  <button type="button" class="chip-btn" data-val="Recruiter">Recruiter</button>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label-title">I want to</label>
+                <div class="chip-group" id="intentChips">
+                  <button type="button" class="chip-btn is-active" data-val="Build an AI product">Build an AI product</button>
+                  <button type="button" class="chip-btn" data-val="Develop a web app">Develop a web app</button>
+                  <button type="button" class="chip-btn" data-val="Direct a video film">Direct a video film</button>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label class="form-label-title" for="clientSiteInput">My Website or Name</label>
+                <input type="text" class="input-box" id="clientSiteInput" placeholder="yourbrand.com or your name" />
+              </div>
+
+              <a class="btn-send-case" id="dispatchEmailBtn" href="mailto:kunjsodhi1@gmail.com?subject=Project%20Inquiry%20via%20Portfolio&body=Hi%20Kunj%2C%0A%0AI'm%20a%20Founder%20and%20I'd%20like%20to%20work%20with%20you%20on%3A%20Build%20an%20AI%20product.%0A%0A">
+                Dispatch Case File →
+              </a>
+
+              <p style="margin-top:14px;text-align:center;font-family:var(--f-mono);font-size:11px;color:var(--ink-muted);">
+                Opens direct email draft to kunjsodhi1@gmail.com.
+                <button type="button" id="copyEmailBtn" style="color:var(--blue);font-weight:700;text-decoration:underline;">Copy email instead</button>
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-quote">
+        “Designed with intent. Built with code. Debugged with questionable optimism.”
+      </p>
+      <p class="footer-copy">
+        © 2026 Kunj Sodhi · Built to be read by people and by AI
+      </p>
+    </div>
+  </footer>
+
+  <!-- FLOATING COMPANION -->
+  <div class="companion" id="companion">
+    <div class="companion-bubble" id="companionBubble" hidden>
+      <p id="bubbleText">Part engineer. Part editor. Full-time debugging my life.</p>
+    </div>
+    <button type="button" class="companion-btn" id="companionBtn" aria-label="Poke Kunj">
+      <img src="/assets/kunj-portrait.png" alt="Mini Kunj Avatar" />
+    </button>
+  </div>
+
+
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

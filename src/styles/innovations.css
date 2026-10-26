@@ -1,0 +1,314 @@
+/* ==========================================================================
+   KUNJ SODHI — INNOVATION MODULES & ENHANCEMENTS
+   Smooth Lenis scrolling overrides, Live AI Triage Sandbox,
+   Interactive DaVinci LUT Switcher, and Hacker CLI Terminal Drawer
+   ========================================================================== */
+
+/* 1. Lenis Smooth Scrolling */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* 2. Interactive AI Triage Simulator Widget */
+.triage-sandbox {
+  margin-top: 1.5rem;
+  background: #0f1013;
+  border: 1.5px solid var(--ink);
+  border-radius: 8px;
+  padding: 1.25rem;
+  box-shadow: 4px 4px 0 #161514;
+}
+
+.triage-sandbox__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.85rem;
+  font-size: 10px;
+}
+
+.triage-sandbox__live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #22c55e;
+}
+
+.triage-sandbox__live .pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse 1.5s infinite;
+}
+
+.triage-sandbox__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.triage-chip {
+  background: var(--sheet);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 5px 9px 4px;
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.triage-chip:hover {
+  background: #fff;
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.triage-chip.is-active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.triage-result {
+  background: #08090a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  color: #d4d4d8;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.triage-badge {
+  display: inline-block;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 10px;
+  margin-right: 6px;
+  letter-spacing: 0.05em;
+}
+
+.triage-badge--critical {
+  background: #d2141c;
+  color: #fff;
+}
+
+.triage-badge--urgent {
+  background: #f7c41f;
+  color: #161514;
+}
+
+.triage-badge--routine {
+  background: #1048ef;
+  color: #fff;
+}
+
+/* 3. Interactive Color Grade LUT Switcher */
+.lut-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  background: #fff;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 8px;
+  width: fit-content;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.lut-btn {
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink-3);
+  transition: all 0.2s;
+}
+
+.lut-btn.is-active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.film-lut-preview {
+  transition: filter 0.4s ease;
+}
+
+.film-lut-preview.is-log {
+  filter: contrast(0.75) saturate(0.55) brightness(1.15);
+}
+
+.film-lut-preview.is-grade {
+  filter: contrast(1.25) saturate(1.2) brightness(0.95) drop-shadow(0 8px 20px rgba(0,0,0,0.4));
+}
+
+.film-lut-preview.is-koda {
+  filter: contrast(1.4) saturate(1.35) sepia(0.18) hue-rotate(-8deg) brightness(0.92) drop-shadow(0 8px 24px rgba(230, 80, 20, 0.3));
+}
+
+/* 4. Interactive Hacker Terminal Drawer */
+.terminal-toggle-btn {
+  position: fixed;
+  bottom: 24px;
+  left: var(--gutter);
+  z-index: 84;
+  background: var(--ink);
+  color: #8fd18f;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 8px 14px 7px;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.terminal-toggle-btn:hover {
+  transform: translateY(-2px);
+  background: #000;
+  border-color: #8fd18f;
+}
+
+.terminal-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: min(440px, 60vh);
+  background: #090a0c;
+  border-top: 2px solid #8fd18f;
+  z-index: 96;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(105%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.terminal-drawer.is-open {
+  transform: translateY(0);
+}
+
+.terminal-top {
+  height: 38px;
+  background: #121418;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.terminal-dot.r { background: #ef4444; }
+.terminal-dot.y { background: #eab308; }
+.terminal-dot.g { background: #22c55e; }
+
+.terminal-body {
+  flex: 1;
+  padding: 1.25rem;
+  overflow-y: auto;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: #c9d1d9;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.terminal-output {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.terminal-line {
+  line-height: 1.5;
+}
+
+.terminal-line.cmd { color: #8fd18f; font-weight: 600; }
+.terminal-line.hint { color: #77736a; }
+.terminal-line.success { color: #a3e635; }
+.terminal-line.accent { color: #38bdf8; }
+
+.terminal-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 8px;
+}
+
+.terminal-prompt {
+  color: #8fd18f;
+  font-weight: 700;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  flex: 1;
+}
+
+/* 5. Interactive Pin Wobble on Evidence Board */
+.pin {
+  cursor: pointer;
+  transition: transform 0.2s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+.pin:hover {
+  transform: scale(1.35);
+}
+.pin:active {
+  transform: scale(0.9);
+}
+
+@keyframes stringVibrate {
+  0% { stroke-width: 2px; stroke: #ff3b2f; }
+  50% { stroke-width: 3.5px; stroke: #ff7870; }
+  100% { stroke-width: 2px; stroke: #c3121a; }
+}
+
+.strings path.is-plucked {
+  animation: stringVibrate 0.6s ease-out;
+}
