@@ -129,7 +129,7 @@ function initSmoothScroll() {
       const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        lenisInstance.scrollTo(target, { offset: -40, duration: 1.35 });
+        lenisInstance.scrollTo(target, { offset: -76, duration: 1.35 });
         sfx.playClick(620);
       }
     });
@@ -148,13 +148,13 @@ function initScrubAndChapters() {
   const navLinks = document.querySelectorAll('.hud-nav .hud-link');
 
   const SECTIONS = [
-    { id: 'hero', name: '01 · Hero' },
-    { id: 'about', name: '02 · About' },
-    { id: 'projects', name: '03 · Projects' },
-    { id: 'skills', name: '04 · Skills' },
-    { id: 'editing', name: '05 · Video Editing' },
-    { id: 'humor', name: '06 · Status' },
-    { id: 'contact', name: '07 · Contact' }
+    { id: 'hero', name: 'Prologue · Hero' },
+    { id: 'about', name: 'Act 01 · Perspective' },
+    { id: 'projects', name: 'Act 02 · Verified Builds' },
+    { id: 'skills', name: 'Act 03 · Toolkit' },
+    { id: 'editing', name: 'Act 04 · Video Reel' },
+    { id: 'humor', name: 'Act 05 · Diagnostics' },
+    { id: 'contact', name: 'Act 06 · Dossier' }
   ];
 
   const TOTAL_DURATION_SEC = 252; // 04:12
@@ -225,7 +225,10 @@ function initCharacterCursorFocus() {
   let currentEyeX = 0;
   let currentEyeY = 0;
 
+  let isMouseActive = false;
+
   function onPointerMove(e) {
+    isMouseActive = true;
     const rect = figure.getBoundingClientRect();
     // Center point between the sunglasses lenses
     const eyeCenterX = rect.left + rect.width * 0.505;
@@ -246,6 +249,12 @@ function initCharacterCursorFocus() {
     targetEyeY = normY * maxRangeY;
   }
 
+  function onMouseLeave() {
+    isMouseActive = false;
+    targetEyeX = 0;
+    targetEyeY = 0;
+  }
+
   // Smooth render loop for eye pupil gliding
   function renderEyes() {
     currentEyeX += (targetEyeX - currentEyeX) * 0.16;
@@ -257,11 +266,15 @@ function initCharacterCursorFocus() {
     rightEye.style.transform = eyeTransform;
 
     if (gazeStatus) {
-      const degX = Math.round((currentEyeX / 14) * 35);
-      const degY = Math.round((currentEyeY / 9) * 25);
-      const signX = degX >= 0 ? `+${degX}` : `${degX}`;
-      const signY = degY >= 0 ? `+${degY}` : `${degY}`;
-      gazeStatus.textContent = `EYES: [${signX}°, ${signY}°] · TRACKING CURSOR`;
+      if (isMouseActive && (Math.abs(currentEyeX) > 0.4 || Math.abs(currentEyeY) > 0.4)) {
+        const degX = Math.round((currentEyeX / 14) * 35);
+        const degY = Math.round((currentEyeY / 9) * 25);
+        const signX = degX >= 0 ? `+${degX}` : `${degX}`;
+        const signY = degY >= 0 ? `+${degY}` : `${degY}`;
+        gazeStatus.textContent = `EYES: [${signX}°, ${signY}°] · TRACKING CURSOR`;
+      } else {
+        gazeStatus.textContent = `EYES: [0°, 0°] · IDLE / AWAITING CURSOR`;
+      }
     }
 
     requestAnimationFrame(renderEyes);
@@ -269,6 +282,7 @@ function initCharacterCursorFocus() {
   renderEyes();
 
   window.addEventListener('mousemove', onPointerMove, { passive: true });
+  document.addEventListener('mouseleave', onMouseLeave);
 
   // Natural blink animation on click
   figure.addEventListener('click', () => {
@@ -558,7 +572,7 @@ function initLiveTelemetry() {
 }
 
 // ============================================================================
-// 13. 3D STORYTELLING FRAME ENTRANCE & CARD ELEVATION ENGINE
+// 13. 3D STORYTELLING FRAME ENTRANCE & CARD PARALLAX ENGINE
 // ============================================================================
 function init3DStoryFrames() {
   const frames = document.querySelectorAll('.story-frame');
@@ -570,14 +584,10 @@ function init3DStoryFrames() {
     const vh = window.innerHeight;
     const scrollY = window.scrollY;
 
-    // Hero 3D Receding Effect
+    // Hero subtle fade on scroll
     if (hero) {
       const heroProg = Math.min(Math.max(scrollY / (vh * 0.75), 0), 1);
-      const heroScale = (1 - heroProg * 0.05).toFixed(3);
-      const heroTilt = (heroProg * -3.5).toFixed(2);
-      const heroZ = (heroProg * -60).toFixed(1);
-      const heroOpacity = (1 - heroProg * 0.22).toFixed(2);
-      hero.style.transform = `perspective(1400px) rotateX(${heroTilt}deg) translateZ(${heroZ}px) scale3d(${heroScale}, ${heroScale}, 1)`;
+      const heroOpacity = (1 - heroProg * 0.28).toFixed(2);
       hero.style.opacity = heroOpacity;
     }
 
@@ -585,32 +595,24 @@ function init3DStoryFrames() {
     frames.forEach(frame => {
       const rect = frame.getBoundingClientRect();
       const enterStart = vh;
-      const enterEnd = vh * 0.15;
+      const enterEnd = vh * 0.25;
 
-      if (rect.top <= enterStart && rect.bottom >= 0) {
-        // Progress from 0 (just entering bottom) to 1 (comfortably in view)
+      if (rect.top <= enterStart && rect.top >= enterEnd) {
+        // Entering bottom of viewport
         const progress = Math.min(Math.max((enterStart - rect.top) / (enterStart - enterEnd), 0), 1);
-        
-        // Cubic easing for smooth tactile arrival
         const ease = 1 - Math.pow(1 - progress, 3);
 
-        const tiltX = ((1 - ease) * 8.5).toFixed(2);
-        const transY = ((1 - ease) * 45).toFixed(1);
-        const transZ = ((1 - ease) * -50).toFixed(1);
-        const scale = (0.95 + ease * 0.05).toFixed(3);
+        const tiltX = ((1 - ease) * 6).toFixed(2);
+        const transY = ((1 - ease) * 35).toFixed(1);
+        const scale = (0.96 + ease * 0.04).toFixed(3);
 
-        const shadowSpread = Math.round(ease * 30 + 10);
-        const shadowBlur = Math.round(ease * 55 + 25);
-        const shadowAlpha = (0.12 + (1 - ease) * 0.14).toFixed(2);
-
-        frame.style.transform = `perspective(1600px) rotateX(${tiltX}deg) translateY(${transY}px) translateZ(${transZ}px) scale3d(${scale}, ${scale}, 1)`;
-        frame.style.boxShadow = `0 -${shadowSpread}px ${shadowBlur}px rgba(22, 21, 20, ${shadowAlpha}), 0 35px 80px rgba(0, 0, 0, 0.12)`;
-      } else if (rect.top > enterStart) {
-        // Below viewport
-        frame.style.transform = `perspective(1600px) rotateX(8.5deg) translateY(45px) translateZ(-50px) scale3d(0.95, 0.95, 1)`;
+        frame.style.transform = `perspective(1600px) rotateX(${tiltX}deg) translateY(${transY}px) scale3d(${scale}, ${scale}, 1)`;
+      } else if (rect.top < enterEnd) {
+        // Comfortably settled in view - clear transform to preserve crystal clear text rendering
+        frame.style.transform = '';
       } else {
-        // Settled in view
-        frame.style.transform = `perspective(1600px) rotateX(0deg) translateY(0px) translateZ(0px) scale3d(1, 1, 1)`;
+        // Below viewport
+        frame.style.transform = `perspective(1600px) rotateX(6deg) translateY(35px) scale3d(0.96, 0.96, 1)`;
       }
     });
   }
@@ -621,18 +623,18 @@ function init3DStoryFrames() {
   window.addEventListener('scroll', updateFrames, { passive: true });
   updateFrames();
 
-  // Subtle Interactive Mouse Parallax on Story Frames
-  frames.forEach(frame => {
-    frame.addEventListener('mousemove', (e) => {
-      const rect = frame.getBoundingClientRect();
-      if (rect.top > window.innerHeight * 0.4 || rect.bottom < window.innerHeight * 0.2) return;
+  // Subtle Interactive Mouse Parallax on Specific Cards (Non-clashing)
+  const tiltCards = document.querySelectorAll('.project-sheet, .skill-box, .humor-card, .philosophy-banner');
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
       const xNorm = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
       const yNorm = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
-      frame.style.transform = `perspective(1600px) rotateX(${(-yNorm * 1.5).toFixed(2)}deg) rotateY(${(xNorm * 1.5).toFixed(2)}deg) translateZ(0px) scale3d(1, 1, 1)`;
+      card.style.transform = `perspective(1000px) rotateX(${(-yNorm * 2.5).toFixed(2)}deg) rotateY(${(xNorm * 2.5).toFixed(2)}deg) translateY(-4px)`;
     });
 
-    frame.addEventListener('mouseleave', () => {
-      frame.style.transform = `perspective(1600px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale3d(1, 1, 1)`;
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
     });
   });
 }
