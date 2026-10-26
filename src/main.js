@@ -646,62 +646,6 @@ function initMagneticButtons() {
 }
 
 // ============================================================================
-// 15. INTERACTIVE DUAL-RING CUSTOM CURSOR
-// ============================================================================
-function initCustomCursor() {
-  const cursorWrap = document.getElementById('customCursor');
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  const badge = document.getElementById('cursorBadge');
-
-  if (!cursorWrap || !dot || !ring) return;
-
-  let mouseX = -100;
-  let mouseY = -100;
-  let ringX = -100;
-  let ringY = -100;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-  }, { passive: true });
-
-  // Spring interpolation loop for smooth trailing ring
-  function loop() {
-    ringX += (mouseX - ringX) * 0.18;
-    ringY += (mouseY - ringY) * 0.18;
-
-    ring.style.transform = `translate(${ringX.toFixed(1)}px, ${ringY.toFixed(1)}px) translate(-50%, -50%)`;
-    requestAnimationFrame(loop);
-  }
-  loop();
-
-  // Contextual cursor badges on hover
-  const hoverConfigs = [
-    { selector: '.btn-main, .btn-send-case, .hud-cta-btn', badge: 'LAUNCH', ringClass: 'is-hovering' },
-    { selector: '.project-sheet', badge: 'EXPLORE', ringClass: 'is-card-hover' },
-    { selector: '.skill-box', badge: 'TOOL', ringClass: 'is-card-hover' },
-    { selector: '.davinci-btn', badge: 'LUT', ringClass: 'is-hovering' },
-    { selector: '.character-stage', badge: 'EYES', ringClass: 'is-hovering' },
-    { selector: '.companion-btn', badge: 'POKE', ringClass: 'is-hovering' }
-  ];
-
-  hoverConfigs.forEach(cfg => {
-    document.querySelectorAll(cfg.selector).forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        ring.classList.add(cfg.ringClass);
-        if (badge) badge.textContent = cfg.badge;
-      });
-      el.addEventListener('mouseleave', () => {
-        ring.classList.remove('is-hovering', 'is-card-hover');
-        if (badge) badge.textContent = '';
-      });
-    });
-  });
-}
-
-// ============================================================================
 // INITIALIZE APPLICATION
 // ============================================================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -710,7 +654,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrubAndChapters();
 
   // 2. Interactive Systems
-  initCustomCursor();
   initCharacterCursorFocus();
   init3DStoryFrames();
   initMagneticButtons();
