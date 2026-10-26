@@ -1831,3 +1831,177 @@ html.lenis, html.lenis body {
   height: 100%;
   object-fit: cover;
 }
+
+/* ==========================================================================
+   25+ YEAR SENIOR FRONTEND 3D SUITE: WEBGL CANVAS & CUSTOM CURSOR
+   ========================================================================== */
+.webgl-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+/* Custom Interactive 3D Cursor */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s;
+  z-index: 10001;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(16, 72, 239, 0.45);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.2, 1.4, 0.4, 1), 
+              height 0.3s cubic-bezier(0.2, 1.4, 0.4, 1), 
+              border-color 0.25s, 
+              background-color 0.25s,
+              box-shadow 0.25s;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(1.5px);
+}
+
+.cursor-ring.is-hovering {
+  width: 68px;
+  height: 68px;
+  border-color: var(--yellow);
+  background: rgba(255, 196, 0, 0.16);
+  box-shadow: 0 0 16px var(--yellow-glow);
+}
+
+.cursor-ring.is-card-hover {
+  width: 80px;
+  height: 80px;
+  border-color: var(--blue);
+  background: rgba(16, 72, 239, 0.12);
+  box-shadow: 0 0 20px var(--blue-glow);
+}
+
+.cursor-badge {
+  font-family: var(--f-mono);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.cursor-ring.is-hovering .cursor-badge,
+.cursor-ring.is-card-hover .cursor-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   SPECULAR LIGHT GLARE & 3D MULTI-LAYER DEPTH (APPLE / AWWWARDS-TIER)
+   ========================================================================== */
+.project-sheet,
+.skill-box,
+.humor-card,
+.philosophy-banner,
+.davinci-monitor,
+.case-note {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.card-specular-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 340px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.12) 40%,
+    transparent 75%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+  z-index: 12;
+}
+
+.project-sheet:hover .card-specular-glare,
+.skill-box:hover .card-specular-glare,
+.humor-card:hover .card-specular-glare,
+.philosophy-banner:hover .card-specular-glare,
+.case-note:hover .card-specular-glare {
+  opacity: 1;
+}
+
+/* Multi-Layer 3D Stereoscopic Floating Elements */
+.project-name,
+.skill-box-title,
+.philosophy-quote,
+.editing-title {
+  transform: translateZ(24px);
+  transform-style: preserve-3d;
+}
+
+.project-badge-row,
+.skill-chips,
+.triage-box,
+.project-preview-card,
+.davinci-screen {
+  transform: translateZ(16px);
+  transform-style: preserve-3d;
+}
+
+.btn-main,
+.btn-alt,
+.btn-send-case {
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
+}
+
+/* Magnetic Button Support */
+.btn-magnetic {
+  display: inline-flex;
+  transition: transform 0.25s cubic-bezier(0.2, 1.4, 0.4, 1), box-shadow 0.25s;
+  will-change: transform;
+}
+
